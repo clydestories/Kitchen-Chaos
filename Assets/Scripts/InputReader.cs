@@ -10,7 +10,7 @@ public class InputReader : MonoBehaviour
     [SerializeField] private List<KeyCode> _interactKeys;
 
     public event Action<Vector2> Moved;
-    public event Action Interacted;
+    public event Action<Vector2> Interacted;
 
     private void Update()
     {
@@ -23,7 +23,7 @@ public class InputReader : MonoBehaviour
         {
             if (Input.GetKeyDown(keyCode))
             {
-                Interacted.Invoke();
+                Interacted?.Invoke(new Vector2(horizontalInput, verticalInput).normalized);
             }
         }
     }
