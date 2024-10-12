@@ -2,9 +2,13 @@ using UnityEngine;
 
 public abstract class Counter : MonoBehaviour, IInteractable
 {
+    [SerializeField] protected CounterAnimator _animator;
+
     [SerializeField] private ActiveVisual _activeVisual;
 
-    public abstract void Interact();
+    public abstract bool TryInteract(KitchenItem item);
+
+    public abstract KitchenItem Interact();
 
     public void SetActive()
     {

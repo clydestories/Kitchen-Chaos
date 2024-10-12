@@ -1,6 +1,7 @@
 public interface IInteractable
 {
-    public abstract void Interact();
+    public abstract bool TryInteract(KitchenItem item);
+    public abstract KitchenItem Interact();
 
     public abstract void SetActive();
 

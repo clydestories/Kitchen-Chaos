@@ -8,9 +8,11 @@ public class InputReader : MonoBehaviour
     private const string Vertical = nameof(Vertical);
 
     [SerializeField] private List<KeyCode> _interactKeys;
+    [SerializeField] private List<KeyCode> _useKeys;
 
     public event Action<Vector2> Moved;
     public event Action Interacted;
+    public event Action Used;
 
     private void Update()
     {
@@ -24,6 +26,14 @@ public class InputReader : MonoBehaviour
             if (Input.GetKeyDown(keyCode))
             {
                 Interacted?.Invoke();
+            }
+        }
+
+        foreach (KeyCode keyCode in _useKeys)
+        {
+            if (Input.GetKeyDown(keyCode))
+            {
+                Used?.Invoke();
             }
         }
     }
