@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _item: {fileID: 5113001305945793725, guid: d20ca2d59fdc7db4581a9aad699affed, type: 3}
   _slicedItemSO: {fileID: 0}
+  _slicingToughness: 0
   _cookedItemSO: {fileID: 0}
   _sprite: {fileID: 21300000, guid: bee24f07c57157e45a946eed3bfe8b84, type: 3}
   _name: Cabagge Slices

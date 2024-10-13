@@ -8,9 +8,14 @@ public class CutterCounter : HolderCounter, IUsable
         {
             if (Item.ItemSO.SlicedItem != null)
             {
-                KitchenItem slicedItem = Instantiate(Item.ItemSO.SlicedItem.Item, ItemHolder);
-                Destroy(Item.gameObject);
-                Item = slicedItem;
+                Item.GetSliced();
+
+                if (Item.SlicesRemaining == 0)
+                {
+                    KitchenItem slicedItem = Instantiate(Item.ItemSO.SlicedItem.Item, ItemHolder);
+                    Destroy(Item.gameObject);
+                    Item = slicedItem;
+                }
             }
         }
     }
