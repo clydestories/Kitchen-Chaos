@@ -69,6 +69,7 @@ public class Interactor : MonoBehaviour
     {
         if (_interactable != null && _interactable is IUsable)
         {
+            Debug.Log("q");
             IUsable usable = _interactable as IUsable;
             usable.Use();
         }

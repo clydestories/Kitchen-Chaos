@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Counter : MonoBehaviour, IInteractable
 {
-    [SerializeField] protected CounterAnimator _animator;
+    [SerializeField] protected CounterAnimator Animator;
 
     [SerializeField] private ActiveVisual _activeVisual;
 

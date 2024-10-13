@@ -17,7 +17,7 @@ public class ContainerCouner : Counter
 
     public override KitchenItem Interact()
     {
-        _animator.StartUseAnimation();
+        Animator.StartUseAnimation();
         return Instantiate(_item.Item);
     }
 }

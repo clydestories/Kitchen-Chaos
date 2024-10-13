@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02e8a04302b686489f30594b8aa1dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 4290012625946972733}
+  Animator: {fileID: 4290012625946972733}
   _activeVisual: {fileID: 4391269678032397458}
   _item: {fileID: 0}
   _sprite: {fileID: 9067608674452379246}

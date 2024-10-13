@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 646965256344b73479c02905e6bb1568, type: 3}
-  m_Name: Tomato
+  m_Name: Cabagge Slices
   m_EditorClassIdentifier: 
-  _item: {fileID: -7092928229546238107, guid: 13fe6f3a5ac4f0743a0599b3ce6b7720, type: 3}
-  _slicedItemSO: {fileID: 11400000, guid: ca9a58cd6f815224a9070ae301011dd4, type: 2}
+  _item: {fileID: 5113001305945793725, guid: d20ca2d59fdc7db4581a9aad699affed, type: 3}
+  _slicedItemSO: {fileID: 0}
   _cookedItemSO: {fileID: 0}
-  _sprite: {fileID: 21300000, guid: 91e8fe3de9249fc44b7bdd8050062896, type: 3}
-  _name: Tomato
+  _sprite: {fileID: 21300000, guid: bee24f07c57157e45a946eed3bfe8b84, type: 3}
+  _name: Cabagge Slices

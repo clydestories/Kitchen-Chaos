@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class HolderCounter : Counter
 {
-    [SerializeField] private Transform _itemHolder;
+    [SerializeField] protected Transform ItemHolder;
 
-    private KitchenItem _item;
+    protected KitchenItem Item;
 
     public override bool TryInteract(KitchenItem item)
     {
-        if (_item == null)
+        if (Item == null)
         {
             PlaceItem(item);
             return true;
@@ -19,7 +19,7 @@ public class HolderCounter : Counter
 
     public override KitchenItem Interact()
     {
-        if (_item != null)
+        if (Item != null)
         {
             return GiveItem();
         }
@@ -29,16 +29,16 @@ public class HolderCounter : Counter
 
     private void PlaceItem(KitchenItem item)
     {
-        _item = item;
-        _item.transform.parent = _itemHolder;
-        _item.transform.localPosition = Vector3.zero;
-        _item.transform.localEulerAngles = Vector3.zero;
+        Item = item;
+        Item.transform.parent = ItemHolder;
+        Item.transform.localPosition = Vector3.zero;
+        Item.transform.localEulerAngles = Vector3.zero;
     }
 
     private KitchenItem GiveItem()
     {
-        KitchenItem itemToGive = _item;
-        _item = null;
+        KitchenItem itemToGive = Item;
+        Item = null;
         return itemToGive;
     }
 }

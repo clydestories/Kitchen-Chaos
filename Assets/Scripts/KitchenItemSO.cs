@@ -4,10 +4,14 @@ using UnityEngine;
 public class KitchenItemSO : ScriptableObject
 {
     [SerializeField] private KitchenItem _item;
+    [SerializeField] private KitchenItemSO _slicedItemSO;
+    [SerializeField] private KitchenItemSO _cookedItemSO;
     [SerializeField] private Sprite _sprite;
     [SerializeField] private string _name;
 
     public KitchenItem Item => _item;
+    public KitchenItemSO SlicedItem => _slicedItemSO;
+    public KitchenItemSO CookedItemSO => _cookedItemSO;
     public Sprite Sprite => _sprite;
     public string Name => _name;
 }
