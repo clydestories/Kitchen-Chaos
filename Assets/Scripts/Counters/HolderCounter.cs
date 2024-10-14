@@ -27,7 +27,7 @@ public class HolderCounter : Counter
         return null;
     }
 
-    private void PlaceItem(KitchenItem item)
+    protected void PlaceItem(KitchenItem item)
     {
         Item = item;
         Item.transform.parent = ItemHolder;

@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 646965256344b73479c02905e6bb1568, type: 3}
-  m_Name: Burger Meat Coocked
+  m_Name: Burger Meat Uncooked
   m_EditorClassIdentifier: 
-  _item: {fileID: 8038940550524741175, guid: 7304d3131dd232148b05cfe3efc5757a, type: 3}
+  _item: {fileID: 5571205384310502128, guid: 22e6dca9fe0c963468823469d73c87e0, type: 3}
   _slicedItemSO: {fileID: 0}
-  _cookedItemSO: {fileID: 11400000, guid: 5f13de906a069fb4bbe770ff90445900, type: 2}
-  _sprite: {fileID: 21300000, guid: f1f50c7ef90b19741b26f2040806cf56, type: 3}
-  _name: Burger Meat Coocked
+  _slicingToughness: 0
+  _cookedItemSO: {fileID: 11400000, guid: 78f4cbfadf6815945a34dbba501cac7c, type: 2}
+  _cookTime: 5
+  _sprite: {fileID: 21300000, guid: aa1bacc24dde76e47b2ec0dd4e82385b, type: 3}
+  _name: Burger Meat Uncooked
