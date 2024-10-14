@@ -1,4 +1,4 @@
 public interface IGivable
 {
-    public bool ItemCanBePlated();
+    public KitchenItem GetItem();
 }

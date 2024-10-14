@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class Interactor : MonoBehaviour
@@ -80,18 +81,18 @@ public class Interactor : MonoBehaviour
         {
             HolderCounter holderCounter = _interactable as HolderCounter;
 
-            if (holderCounter.Item == null || holderCounter.Item is Plate && _itemInHands != null)
+            if (holderCounter.GetItem() == null || holderCounter.GetItem() is Plate && _itemInHands != null)
             {
                 PutItem();
             }
             else if (_itemInHands is Plate)
             {
-                if (holderCounter.Item.ItemSO.CanBePlated)
+                if (holderCounter.GetItem().ItemSO.CanBePlated)
                 {
                     TakeItem();
                 }
             }
-            else
+            else if (_itemInHands == null)
             {
                 TakeItem();
             }
@@ -102,12 +103,12 @@ public class Interactor : MonoBehaviour
 
             if (_itemInHands is Plate)
             {
-                if (givable.ItemCanBePlated())
+                if (givable.GetItem().ItemSO.CanBePlated)
                 {
                     TakeItem();
                 }
             }
-            else
+            else if (_itemInHands == null)
             {
                 TakeItem();
             }
@@ -134,16 +135,26 @@ public class Interactor : MonoBehaviour
 
     private void TakeItem()
     {
-        KitchenItem newItem = _interactable?.Interact();
+        KitchenItem newItem;
+        IGivable givable = _interactable as IGivable;
 
-        if (_itemInHands is Plate && newItem != null)
+        if (_itemInHands is Plate)
         {
             Plate plate = _itemInHands as Plate;
-            plate.PlateItem(newItem);
+
+            if (plate.PlatedItems.Contains(givable.GetItem().ItemSO) == false) 
+            {
+                newItem = _interactable?.Interact();
+
+                if (newItem != null) 
+                {
+                    plate.PlateItem(newItem);
+                }
+            }
         }
         else
         {
-            _itemInHands = newItem;
+            _itemInHands = _interactable?.Interact();
 
             if (_itemInHands != null)
             {

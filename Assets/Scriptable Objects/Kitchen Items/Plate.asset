@@ -19,3 +19,4 @@ MonoBehaviour:
   _cookTime: 0
   _sprite: {fileID: 21300000, guid: 3928afb5321bb3d489bbd4ac581b29a2, type: 3}
   _name: Plate
+  _canBePlated: 0

@@ -24,8 +24,8 @@ public class ContainerCouner : Counter, IGivable
         return Instantiate(_item.Item);
     }
 
-    public bool ItemCanBePlated()
+    public KitchenItem GetItem()
     {
-        return _item.CanBePlated;
+        return _item.Item;
     }
 }

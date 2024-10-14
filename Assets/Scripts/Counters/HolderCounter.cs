@@ -1,12 +1,10 @@
 using UnityEngine;
 
-public class HolderCounter : Counter
+public class HolderCounter : Counter, IGivable
 {
     [SerializeField] protected Transform ItemHolder;
 
     protected KitchenItem CurrentItem;
-
-    public KitchenItem Item => CurrentItem;
 
     public override bool TryInteract(KitchenItem item)
     {
@@ -18,8 +16,12 @@ public class HolderCounter : Counter
         else if (CurrentItem is Plate && item.ItemSO.CanBePlated) 
         { 
             Plate plate = (Plate)CurrentItem;
-            plate.PlateItem(item);
-            return true;
+
+            if (plate.PlatedItems.Contains(item.ItemSO) == false)
+            {
+                plate.PlateItem(item);
+                return true;
+            }
         }
 
         return false;
@@ -48,5 +50,10 @@ public class HolderCounter : Counter
         KitchenItem itemToGive = CurrentItem;
         CurrentItem = null;
         return itemToGive;
+    }
+
+    public KitchenItem GetItem()
+    {
+        return CurrentItem;
     }
 }

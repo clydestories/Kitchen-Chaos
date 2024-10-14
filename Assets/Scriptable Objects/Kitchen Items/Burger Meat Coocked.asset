@@ -19,3 +19,4 @@ MonoBehaviour:
   _cookTime: 5
   _sprite: {fileID: 21300000, guid: f1f50c7ef90b19741b26f2040806cf56, type: 3}
   _name: Burger Meat Coocked
+  _canBePlated: 1

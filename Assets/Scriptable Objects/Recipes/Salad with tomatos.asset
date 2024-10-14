@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36603a17e35774147a7b36c196e97897, type: 3}
+  m_Name: Salad with tomatos
+  m_EditorClassIdentifier: 
+  _ingredients:
+  - {fileID: 11400000, guid: 93e2d8cf412c04c49aff3e7ef3908d64, type: 2}
+  - {fileID: 11400000, guid: ca9a58cd6f815224a9070ae301011dd4, type: 2}
+  _name: Salad with tomatos
+  _visual: {fileID: -19917377877365072, guid: 01b605ec2bb743a4fa0363948a823e8e, type: 3}

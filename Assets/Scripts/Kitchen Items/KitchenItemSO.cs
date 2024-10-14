@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Kitchen Item", menuName = "Items", order = 3)]
+[CreateAssetMenu(fileName = "Kitchen Item", menuName = "Kitchen Item", order = 3)]
 public class KitchenItemSO : ScriptableObject
 {
     [SerializeField] private KitchenItem _item;

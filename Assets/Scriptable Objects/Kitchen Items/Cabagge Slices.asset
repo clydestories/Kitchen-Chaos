@@ -16,5 +16,7 @@ MonoBehaviour:
   _slicedItemSO: {fileID: 0}
   _slicingToughness: 0
   _cookedItemSO: {fileID: 0}
+  _cookTime: 0
   _sprite: {fileID: 21300000, guid: bee24f07c57157e45a946eed3bfe8b84, type: 3}
   _name: Cabagge Slices
+  _canBePlated: 1
