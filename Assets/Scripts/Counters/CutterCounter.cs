@@ -16,7 +16,6 @@ public class CutterCounter : ProgressCounter, IUsable
         Item.GetSliced();
         Animator.StartUseAnimation();
         OnProgressUpdate(Item.ItemSO.SlicingToughness - Item.SlicesRemaining, Item.ItemSO.SlicingToughness);
-        Item.transform.RotateAround(UnityEngine.Vector3.right, 30);
 
         if (Item.SlicesRemaining == 0)
         {
