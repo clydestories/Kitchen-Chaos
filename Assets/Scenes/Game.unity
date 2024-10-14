@@ -315,10 +315,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1854458484}
     m_Modifications:
+    - target: {fileID: 1373515191178985349, guid: 120297a6cf4fda04d9f39cb3ef56a6f7,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2229152028634214333, guid: 120297a6cf4fda04d9f39cb3ef56a6f7,
         type: 3}
       propertyPath: m_Name
       value: Cutter Counter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384916207514695753, guid: 120297a6cf4fda04d9f39cb3ef56a6f7,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384916207514695753, guid: 120297a6cf4fda04d9f39cb3ef56a6f7,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5446561667189028206, guid: 120297a6cf4fda04d9f39cb3ef56a6f7,
         type: 3}
@@ -368,6 +383,11 @@ PrefabInstance:
     - target: {fileID: 5446561667189028206, guid: 120297a6cf4fda04d9f39cb3ef56a6f7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6658060464236034847, guid: 120297a6cf4fda04d9f39cb3ef56a6f7,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2805,6 +2825,11 @@ PrefabInstance:
     - target: {fileID: 5335334465564676505, guid: ceeb288625bb65a43bfd0b7d792d57bf,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507953111039651174, guid: ceeb288625bb65a43bfd0b7d792d57bf,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

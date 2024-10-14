@@ -2,12 +2,9 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class StoveCounter : HolderCounter
+public class StoveCounter : ProgressCounter
 {
     private Coroutine _frying;
-    private float _currentMaxFryingProgress;
-
-    public event Action<float, float> FryingProgressUpdated;
 
     public override bool TryInteract(KitchenItem item)
     {
@@ -33,23 +30,24 @@ public class StoveCounter : HolderCounter
 
     private IEnumerator Frying()
     {
-        _currentMaxFryingProgress = Item.ItemSO.CookTime;
+        float currentMaxFryingProgress = Item.ItemSO.CookTime;
+        Animator.TurnCounterOn();
 
-        while (Item != null && Item.CookingProgress < _currentMaxFryingProgress) 
+        while (Item != null && Item.CookingProgress < currentMaxFryingProgress) 
         {
             Item.GetCooked(Time.deltaTime);
-            FryingProgressUpdated?.Invoke(Item.CookingProgress, _currentMaxFryingProgress);
+            OnProgressUpdate(Item.CookingProgress, currentMaxFryingProgress);
             yield return null;
         }
 
-        if (Item?.CookingProgress >= _currentMaxFryingProgress)
+        if (Item?.CookingProgress >= currentMaxFryingProgress)
         {
             KitchenItem cookedItem = Instantiate(Item.ItemSO.CookedItemSO.Item, ItemHolder);
             Destroy(Item.gameObject);
             Item = cookedItem;
         }
 
-        _currentMaxFryingProgress = 0;
+        Animator.TurnCounterOff();
 
         if (Item?.ItemSO.CookedItemSO != null)
         {
