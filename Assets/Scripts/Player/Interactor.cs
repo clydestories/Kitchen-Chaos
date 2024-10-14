@@ -76,6 +76,53 @@ public class Interactor : MonoBehaviour
 
     private void Interact()
     {
+        if (_interactable is HolderCounter)
+        {
+            HolderCounter holderCounter = _interactable as HolderCounter;
+
+            if (holderCounter.Item == null || holderCounter.Item is Plate && _itemInHands != null)
+            {
+                PutItem();
+            }
+            else if (_itemInHands is Plate)
+            {
+                if (holderCounter.Item.ItemSO.CanBePlated)
+                {
+                    TakeItem();
+                }
+            }
+            else
+            {
+                TakeItem();
+            }
+        }
+        else if (_interactable is IGivable)
+        {
+            IGivable givable = _interactable as IGivable;
+
+            if (_itemInHands is Plate)
+            {
+                if (givable.ItemCanBePlated())
+                {
+                    TakeItem();
+                }
+            }
+            else
+            {
+                TakeItem();
+            }
+        }
+        else if (_interactable is ITakeable)
+        {
+            if (_itemInHands != null)
+            {
+                PutItem();
+            }
+        }
+    }
+
+    private void PutItem()
+    {
         if (_itemInHands != null)
         {
             if (_interactable != null && _interactable.TryInteract(_itemInHands))
@@ -83,9 +130,20 @@ public class Interactor : MonoBehaviour
                 _itemInHands = null;
             }
         }
-        else 
+    }
+
+    private void TakeItem()
+    {
+        KitchenItem newItem = _interactable?.Interact();
+
+        if (_itemInHands is Plate && newItem != null)
         {
-            _itemInHands = _interactable?.Interact();
+            Plate plate = _itemInHands as Plate;
+            plate.PlateItem(newItem);
+        }
+        else
+        {
+            _itemInHands = newItem;
 
             if (_itemInHands != null)
             {
@@ -94,6 +152,5 @@ public class Interactor : MonoBehaviour
                 _itemInHands.transform.localEulerAngles = Vector3.zero;
             }
         }
-        
     }
 }

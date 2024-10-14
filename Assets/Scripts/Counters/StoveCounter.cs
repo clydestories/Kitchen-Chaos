@@ -8,11 +8,11 @@ public class StoveCounter : ProgressCounter
 
     public override bool TryInteract(KitchenItem item)
     {
-        if (Item == null)
+        if (CurrentItem == null)
         {
             PlaceItem(item);
 
-            if (Item.ItemSO.CookedItemSO != null)
+            if (CurrentItem.ItemSO.CookedItemSO != null)
             {
                 if (_frying != null)
                 {
@@ -30,26 +30,26 @@ public class StoveCounter : ProgressCounter
 
     private IEnumerator Frying()
     {
-        float currentMaxFryingProgress = Item.ItemSO.CookTime;
+        float currentMaxFryingProgress = CurrentItem.ItemSO.CookTime;
         Animator.TurnCounterOn();
 
-        while (Item != null && Item.CookingProgress < currentMaxFryingProgress) 
+        while (CurrentItem != null && CurrentItem.CookingProgress < currentMaxFryingProgress) 
         {
-            Item.GetCooked(Time.deltaTime);
-            OnProgressUpdate(Item.CookingProgress, currentMaxFryingProgress);
+            CurrentItem.GetCooked(Time.deltaTime);
+            OnProgressUpdate(CurrentItem.CookingProgress, currentMaxFryingProgress);
             yield return null;
         }
 
-        if (Item?.CookingProgress >= currentMaxFryingProgress)
+        if (CurrentItem?.CookingProgress >= currentMaxFryingProgress)
         {
-            KitchenItem cookedItem = Instantiate(Item.ItemSO.CookedItemSO.Item, ItemHolder);
-            Destroy(Item.gameObject);
-            Item = cookedItem;
+            KitchenItem cookedItem = Instantiate(CurrentItem.ItemSO.CookedItemSO.Item, ItemHolder);
+            Destroy(CurrentItem.gameObject);
+            CurrentItem = cookedItem;
         }
 
         Animator.TurnCounterOff();
 
-        if (Item?.ItemSO.CookedItemSO != null)
+        if (CurrentItem?.ItemSO.CookedItemSO != null)
         {
             _frying = StartCoroutine(Frying());
         }

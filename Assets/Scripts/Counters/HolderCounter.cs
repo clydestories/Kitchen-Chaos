@@ -4,13 +4,21 @@ public class HolderCounter : Counter
 {
     [SerializeField] protected Transform ItemHolder;
 
-    protected KitchenItem Item;
+    protected KitchenItem CurrentItem;
+
+    public KitchenItem Item => CurrentItem;
 
     public override bool TryInteract(KitchenItem item)
     {
-        if (Item == null)
+        if (CurrentItem == null)
         {
             PlaceItem(item);
+            return true;
+        }
+        else if (CurrentItem is Plate && item.ItemSO.CanBePlated) 
+        { 
+            Plate plate = (Plate)CurrentItem;
+            plate.PlateItem(item);
             return true;
         }
 
@@ -19,7 +27,7 @@ public class HolderCounter : Counter
 
     public override KitchenItem Interact()
     {
-        if (Item != null)
+        if (CurrentItem != null)
         {
             return GiveItem();
         }
@@ -29,16 +37,16 @@ public class HolderCounter : Counter
 
     protected void PlaceItem(KitchenItem item)
     {
-        Item = item;
-        Item.transform.parent = ItemHolder;
-        Item.transform.localPosition = Vector3.zero;
-        Item.transform.localEulerAngles = Vector3.zero;
+        CurrentItem = item;
+        CurrentItem.transform.parent = ItemHolder;
+        CurrentItem.transform.localPosition = Vector3.zero;
+        CurrentItem.transform.localEulerAngles = Vector3.zero;
     }
 
     private KitchenItem GiveItem()
     {
-        KitchenItem itemToGive = Item;
-        Item = null;
+        KitchenItem itemToGive = CurrentItem;
+        CurrentItem = null;
         return itemToGive;
     }
 }

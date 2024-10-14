@@ -1,4 +1,6 @@
-public class TrashCounter : Counter
+using UnityEngine;
+
+public class TrashCounter : Counter, ITakeable
 {
     public override KitchenItem Interact()
     {
@@ -7,6 +9,7 @@ public class TrashCounter : Counter
 
     public override bool TryInteract(KitchenItem item)
     {
+        Debug.Log("qwe");
         Destroy(item.gameObject);
         return true;
     }

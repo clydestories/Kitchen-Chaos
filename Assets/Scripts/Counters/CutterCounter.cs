@@ -2,9 +2,9 @@ public class CutterCounter : ProgressCounter, IUsable
 {
     public void Use()
     {
-        if (Item != null)
+        if (CurrentItem != null)
         {
-            if (Item.ItemSO.SlicedItem != null)
+            if (CurrentItem.ItemSO.SlicedItem != null)
             {
                 Slice();
             }
@@ -13,15 +13,15 @@ public class CutterCounter : ProgressCounter, IUsable
 
     private void Slice()
     {
-        Item.GetSliced();
+        CurrentItem.GetSliced();
         Animator.StartUseAnimation();
-        OnProgressUpdate(Item.ItemSO.SlicingToughness - Item.SlicesRemaining, Item.ItemSO.SlicingToughness);
+        OnProgressUpdate(CurrentItem.ItemSO.SlicingToughness - CurrentItem.SlicesRemaining, CurrentItem.ItemSO.SlicingToughness);
 
-        if (Item.SlicesRemaining == 0)
+        if (CurrentItem.SlicesRemaining == 0)
         {
-            KitchenItem slicedItem = Instantiate(Item.ItemSO.SlicedItem.Item, ItemHolder);
-            Destroy(Item.gameObject);
-            Item = slicedItem;
+            KitchenItem slicedItem = Instantiate(CurrentItem.ItemSO.SlicedItem.Item, ItemHolder);
+            Destroy(CurrentItem.gameObject);
+            CurrentItem = slicedItem;
         }
     }
 }

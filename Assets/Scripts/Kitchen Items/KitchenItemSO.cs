@@ -10,6 +10,7 @@ public class KitchenItemSO : ScriptableObject
     [SerializeField] private float _cookTime;
     [SerializeField] private Sprite _sprite;
     [SerializeField] private string _name;
+    [SerializeField] private bool _canBePlated;
 
     public KitchenItem Item => _item;
     public KitchenItemSO SlicedItem => _slicedItemSO;
@@ -18,4 +19,5 @@ public class KitchenItemSO : ScriptableObject
     public float CookTime => _cookTime;
     public Sprite Sprite => _sprite;
     public string Name => _name;
+    public bool CanBePlated => _canBePlated;
 }
