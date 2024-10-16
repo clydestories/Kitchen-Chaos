@@ -15,4 +15,5 @@ MonoBehaviour:
   _ingredients:
   - {fileID: 11400000, guid: 1d9977d9cee85184187e1074f9df7274, type: 2}
   _name: Cheese Slices
-  _visual: {fileID: 0}
+  _visual: {fileID: -5268534808998978483, guid: 50bcd428f96cfa047b58d3ffca38ac90,
+    type: 3}

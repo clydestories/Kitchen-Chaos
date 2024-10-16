@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class Plate : KitchenItem
     private List<KitchenItemSO> _platedItems = new();
     private List<RecipeSO> _potentialRecipes;
     private DishVisual _currentVisual;
+
+    public event Action<KitchenItemSO> ContentAdded;
 
     public List<KitchenItemSO> PlatedItems => _platedItems.ToList();
 
@@ -25,6 +28,7 @@ public class Plate : KitchenItem
         _platedItems.Add(kitchenItemSO);
         UpdatePotentialRecipes(kitchenItemSO);
         UpdateVisual();
+        ContentAdded?.Invoke(kitchenItemSO);
     }
 
     private void UpdatePotentialRecipes(KitchenItemSO item)

@@ -46,8 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _visuals:
-  - ItemSO: {fileID: 11400000, guid: 78f4cbfadf6815945a34dbba501cac7c, type: 2}
-    ItemGO: {fileID: 0}
   - ItemSO: {fileID: 11400000, guid: 1d9977d9cee85184187e1074f9df7274, type: 2}
     ItemGO: {fileID: 3550707550894988255}
 --- !u!1001 &408889405707390302
