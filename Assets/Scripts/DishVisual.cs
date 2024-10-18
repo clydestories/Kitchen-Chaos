@@ -12,7 +12,7 @@ public class DishVisual : MonoBehaviour
     {
         foreach (var visual in _visuals)
         {
-            visual.ItemGO.SetActive(false);
+            visual.ItemGO.SetActive(false); 
         }
     }
 
