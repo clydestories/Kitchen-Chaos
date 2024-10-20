@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 6850299976408053494}
   - component: {fileID: -4706873439998764787}
   m_Layer: 10
-  m_Name: Ingredient Icon
+  m_Name: Ingredient Icon World UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
