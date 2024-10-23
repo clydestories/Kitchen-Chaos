@@ -112,6 +112,17 @@ public class Interactor : MonoBehaviour
             {
                 TakeItem();
             }
+            else if (_itemInHands != null && givable is PlatingCounter)
+            {
+                if (_itemInHands.ItemSO.CanBePlated)
+                {
+                    KitchenItem tempItem = _itemInHands;
+                    _itemInHands = null;
+                    TakeItem();
+                    Plate plate = _itemInHands as Plate;
+                    plate.PlateItem(tempItem);
+                }
+            }
         }
         else if (_interactable is ITakeable)
         {

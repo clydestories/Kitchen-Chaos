@@ -10,6 +10,7 @@ public class TrashCounter : Counter, ITakeable
     public override bool TryInteract(KitchenItem item)
     {
         Destroy(item.gameObject);
+        AudioHandler.PlayInteractTakeSound();
         return true;
     }
 }

@@ -208,8 +208,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 0}
+  AudioHandler: {fileID: 0}
   _activeVisual: {fileID: 5293475570887181262}
   ItemHolder: {fileID: 4814307146680329506}
+  _manager: {fileID: 0}
 --- !u!1001 &2338884086929714440
 PrefabInstance:
   m_ObjectHideFlags: 0

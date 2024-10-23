@@ -30,6 +30,7 @@ public class StoveCounter : ProgressCounter
 
     private IEnumerator Frying()
     {
+        AudioHandler.StartContinuousUseSound();
         float currentMaxFryingProgress = CurrentItem.ItemSO.CookTime;
         Animator.TurnCounterOn();
 
@@ -48,6 +49,7 @@ public class StoveCounter : ProgressCounter
         }
 
         Animator.TurnCounterOff();
+        AudioHandler.StopContinuousUseSound();
 
         if (CurrentItem?.ItemSO.CookedItemSO != null)
         {

@@ -13,6 +13,7 @@ public class DeliveryManager : MonoBehaviour
 
     public event Action<Order> OrderCreated;
     public event Action<Order> OrderCompleted;
+    public event Action<Order> OrderFailed;
 
     private void OnEnable()
     {
@@ -47,6 +48,7 @@ public class DeliveryManager : MonoBehaviour
             }
         }
 
+        OrderFailed?.Invoke(null);
         return false;
     }
 
@@ -69,6 +71,5 @@ public class DeliveryManager : MonoBehaviour
         Order order = new Order(_recipeList.Recipes[recipeIndex]);
         _orders.Add(order);
         OrderCreated?.Invoke(order);
-        Debug.Log(order.RecipeSO.Name);
     }
 }

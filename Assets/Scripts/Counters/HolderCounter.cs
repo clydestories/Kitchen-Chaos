@@ -11,6 +11,7 @@ public class HolderCounter : Counter, IGivable
         if (CurrentItem == null)
         {
             PlaceItem(item);
+            AudioHandler?.PlayInteractTakeSound();
             return true;
         }
         else if (CurrentItem is Plate && item.ItemSO.CanBePlated) 
@@ -20,6 +21,7 @@ public class HolderCounter : Counter, IGivable
             if (plate.PlatedItems.Contains(item.ItemSO) == false)
             {
                 plate.PlateItem(item);
+                AudioHandler?.PlayInteractTakeSound();
                 return true;
             }
         }
@@ -31,6 +33,7 @@ public class HolderCounter : Counter, IGivable
     {
         if (CurrentItem != null)
         {
+            AudioHandler?.PlayInteractGiveSound();
             return GiveItem();
         }
 

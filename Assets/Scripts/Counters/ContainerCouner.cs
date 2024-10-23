@@ -21,6 +21,7 @@ public class ContainerCouner : Counter, IGivable
     public override KitchenItem Interact()
     {
         Animator?.StartUseAnimation();
+        AudioHandler.PlayInteractGiveSound();
         return Instantiate(_item.Item);
     }
 

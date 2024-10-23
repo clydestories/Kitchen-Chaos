@@ -6,6 +6,7 @@ public class CutterCounter : ProgressCounter, IUsable
         {
             if (CurrentItem.ItemSO.SlicedItem != null)
             {
+                AudioHandler.PlayUseSound();
                 Slice();
             }
         }

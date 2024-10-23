@@ -16,7 +16,7 @@ public class Plate : KitchenItem
 
     public List<KitchenItemSO> PlatedItems => _platedItems.ToList();
 
-    private void Start()
+    private void OnEnable()
     {
         _potentialRecipes = _recipeListSO.Recipes;
     }

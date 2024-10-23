@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Mover : MonoBehaviour
@@ -9,6 +10,8 @@ public class Mover : MonoBehaviour
     [SerializeField] private float _collisionDistance;
     [Header("Dependencies")]
     [SerializeField] private InputReader _input;
+
+    public event Action<Vector2> Moved;
 
     private void OnEnable()
     {
@@ -37,5 +40,7 @@ public class Mover : MonoBehaviour
         {
             transform.position += Vector3.forward * movingDirection.z;
         }
+
+        Moved?.Invoke(inputDirection);
     }
 }
