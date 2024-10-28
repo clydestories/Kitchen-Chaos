@@ -404,8 +404,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 283164349}
+  - component: {fileID: 283164350}
   m_Layer: 0
-  m_Name: GameStateMachine
+  m_Name: GameStateManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,12 +421,27 @@ Transform:
   m_GameObject: {fileID: 283164348}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03389255, y: -2.016038, z: 3.4839363}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &283164350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283164348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9989beff8f61a554fba6939aa6882441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _input: {fileID: 1504241513}
+  _countdownDelay: 3
+  _countdownStep: 1
 --- !u!4 &292704944 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7250243128957127470, guid: 010d288f1c8f7cf4c8d4f56ecadc37af,
@@ -2047,6 +2063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactKeys: 65000000
   _useKeys: 66000000
+  _pauseKeys: 1b000000
 --- !u!114 &1504241514
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,10 +9,12 @@ public class InputReader : MonoBehaviour
 
     [SerializeField] private List<KeyCode> _interactKeys;
     [SerializeField] private List<KeyCode> _useKeys;
+    [SerializeField] private List<KeyCode> _pauseKeys;
 
     public event Action<Vector2> Moved;
     public event Action Interacted;
     public event Action Used;
+    public event Action Paused;
 
     private void Update()
     {
@@ -34,6 +36,14 @@ public class InputReader : MonoBehaviour
             if (Input.GetKeyDown(keyCode))
             {
                 Used?.Invoke();
+            }
+        }
+
+        foreach (KeyCode keyCode in _pauseKeys)
+        {
+            if (Input.GetKeyDown(keyCode))
+            {
+                Paused?.Invoke();
             }
         }
     }
