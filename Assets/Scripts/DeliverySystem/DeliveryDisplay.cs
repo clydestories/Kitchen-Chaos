@@ -7,6 +7,7 @@ public class DeliveryDisplay : MonoBehaviour
     [SerializeField] private DeliveryManager _deliveryManager;
     [SerializeField] private Transform _ordersContainer;
     [SerializeField] private OrderUI _orderPrefab;
+    [SerializeField] private float _scaleDuration;
 
     private List<OrderUI> _orders = new();
 

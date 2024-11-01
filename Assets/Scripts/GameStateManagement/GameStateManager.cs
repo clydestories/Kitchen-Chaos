@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -13,6 +14,9 @@ public class GameStateManager : MonoBehaviour
     private bool _isPaused = false;
     private bool _hasLost = false;
 
+    public event Action<int> CooldownUpdated;
+    public event Action<bool> PauseToggled;
+
     public bool IsCountingDown => _isCountingDown;
     public bool IsPaused => _isPaused;
     public bool HasLost => _hasLost;
@@ -24,7 +28,7 @@ public class GameStateManager : MonoBehaviour
 
     private void OnEnable()
     {
-        _input.Paused += HandlePause;
+        _input.Paused += TogglePause;
     }
 
     private void Start()
@@ -39,7 +43,7 @@ public class GameStateManager : MonoBehaviour
 
     private void OnDisable()
     {
-        _input.Paused -= HandlePause;
+        _input.Paused -= TogglePause;
     }
 
     public void StartCountdown()
@@ -69,9 +73,10 @@ public class GameStateManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    private void HandlePause()
+    public void TogglePause()
     {
         _isPaused = !_isPaused;
+        PauseToggled?.Invoke(_isPaused);
     }
 
     private void Loose()
@@ -83,12 +88,14 @@ public class GameStateManager : MonoBehaviour
     {
         _isCountingDown = true;
         float countdown = _countdownDelay;
+        CooldownUpdated?.Invoke((int)countdown);
         var wait = new WaitForSecondsRealtime(_countdownStep);
 
         while (countdown > 0)
         {
             yield return wait;
             countdown -= _countdownStep;
+            CooldownUpdated?.Invoke((int)countdown);
         }
 
         _isCountingDown = false;
